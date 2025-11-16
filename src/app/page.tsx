@@ -3,8 +3,9 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { supabase } from '@/lib/supabase'
+import { Loader2 } from 'lucide-react'
 
-export default function Home() {
+export default function HomePage() {
   const router = useRouter()
 
   useEffect(() => {
@@ -12,9 +13,9 @@ export default function Home() {
   }, [])
 
   async function checkAuth() {
-    const { data: { user } } = await supabase.auth.getUser()
+    const { data: { session } } = await supabase.auth.getSession()
     
-    if (user) {
+    if (session) {
       router.push('/dashboard')
     } else {
       router.push('/login')
@@ -22,11 +23,11 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen gap-4">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white"></div>
-      <p className="text-xl text-white">
-        Carregando...
-      </p>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="text-center">
+        <Loader2 className="w-16 h-16 text-white animate-spin mx-auto mb-4" />
+        <p className="text-white text-xl">Carregando...</p>
+      </div>
     </div>
   )
 }
