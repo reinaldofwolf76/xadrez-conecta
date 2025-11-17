@@ -25,19 +25,19 @@ export default function LoginPage() {
   }, [router])
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-[#161512]">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Crown className="w-12 h-12 text-amber-500" />
+            <Crown className="w-12 h-12 text-[#d59120]" />
             <h1 className="text-5xl font-bold text-white">Xadrez Conecta</h1>
           </div>
-          <p className="text-gray-300 text-lg">
+          <p className="text-gray-400 text-lg">
             Jogue xadrez e faça amigos pelo mundo
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-white/20">
+        <div className="bg-[#2b2925] rounded-2xl p-8 shadow-2xl border border-[#3d3d3d]">
           {redirectUrl && (
             <Auth
               supabaseClient={supabase}
@@ -46,16 +46,25 @@ export default function LoginPage() {
                 variables: {
                   default: {
                     colors: {
-                      brand: '#1e40af',
-                      brandAccent: '#1e3a8a',
-                      defaultButtonBackground: '#1e40af',
-                      defaultButtonBackgroundHover: '#1e3a8a',
+                      brand: '#a88865',
+                      brandAccent: '#8b6f47',
+                      defaultButtonBackground: '#a88865',
+                      defaultButtonBackgroundHover: '#8b6f47',
+                      inputBackground: '#3d3d3d',
+                      inputBorder: '#4d4d4d',
+                      inputBorderHover: '#a88865',
+                      inputBorderFocus: '#d59120',
+                      inputText: '#ffffff',
+                      inputLabelText: '#d1d5db',
+                      inputPlaceholder: '#9ca3af',
                     },
                   },
                 },
                 className: {
-                  button: 'text-white',
-                  anchor: 'text-blue-400 hover:text-blue-300',
+                  button: 'text-white font-semibold',
+                  anchor: 'text-[#d59120] hover:text-[#a88865]',
+                  input: 'text-white',
+                  label: 'text-gray-300',
                 },
               }}
               providers={['google', 'github']}
@@ -84,7 +93,7 @@ export default function LoginPage() {
           )}
         </div>
 
-        <div className="mt-6 text-center text-gray-400 text-sm">
+        <div className="mt-6 text-center text-gray-500 text-sm">
           <p>Ao entrar, você concorda com nossos Termos de Uso</p>
         </div>
       </div>

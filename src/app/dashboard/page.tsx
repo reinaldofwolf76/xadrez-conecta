@@ -99,19 +99,19 @@ export default function DashboardPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
-        <div className="text-white text-xl">Carregando...</div>
+      <div className="min-h-screen flex items-center justify-center bg-[#161512]">
+        <div className="text-gray-300 text-xl">Carregando...</div>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+    <div className="min-h-screen p-4 md:p-8 bg-[#161512]">
       {/* Header */}
       <header className="max-w-7xl mx-auto mb-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <Crown className="w-10 h-10 text-amber-500" />
+            <Crown className="w-10 h-10 text-[#d59120]" />
             <h1 className="text-3xl md:text-4xl font-bold text-white">Xadrez Conecta</h1>
           </div>
           
@@ -119,7 +119,7 @@ export default function DashboardPage() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/10"
+              className="text-gray-300 hover:bg-[#2b2925] hover:text-white"
               onClick={() => router.push('/profile')}
             >
               <Settings className="w-5 h-5" />
@@ -127,7 +127,7 @@ export default function DashboardPage() {
             <Button
               variant="ghost"
               size="icon"
-              className="text-white hover:bg-white/10"
+              className="text-gray-300 hover:bg-[#2b2925] hover:text-white"
               onClick={handleLogout}
             >
               <LogOut className="w-5 h-5" />
@@ -140,11 +140,11 @@ export default function DashboardPage() {
       <main className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Profile Card */}
-          <Card className="lg:col-span-1 bg-white/10 backdrop-blur-lg border-white/20 p-6">
+          <Card className="lg:col-span-1 bg-[#2b2925] border-[#3d3d3d] p-6">
             <div className="text-center">
               <Avatar className="w-24 h-24 mx-auto mb-4">
                 <AvatarImage src={profile?.avatar_url} />
-                <AvatarFallback className="bg-slate-700 text-white text-2xl">
+                <AvatarFallback className="bg-[#3d3d3d] text-white text-2xl">
                   {profile?.username?.[0]?.toUpperCase() || 'U'}
                 </AvatarFallback>
               </Avatar>
@@ -154,18 +154,18 @@ export default function DashboardPage() {
               </h2>
               
               <div className="flex items-center justify-center gap-2 mb-4">
-                <Trophy className="w-5 h-5 text-amber-500" />
-                <span className="text-xl text-amber-500 font-bold">
+                <Trophy className="w-5 h-5 text-[#d59120]" />
+                <span className="text-xl text-[#d59120] font-bold">
                   {profile?.rating || 1200}
                 </span>
               </div>
 
               {profile?.bio && (
-                <p className="text-gray-300 text-sm mb-4">{profile.bio}</p>
+                <p className="text-gray-400 text-sm mb-4">{profile.bio}</p>
               )}
 
               <Button
-                className="w-full bg-slate-700 hover:bg-slate-600 text-white"
+                className="w-full bg-[#3d3d3d] hover:bg-[#4d4d4d] text-white"
                 onClick={() => router.push('/profile')}
               >
                 Editar Perfil
@@ -176,7 +176,7 @@ export default function DashboardPage() {
           {/* Main Actions */}
           <div className="lg:col-span-2 space-y-6">
             {/* Find Match Card */}
-            <Card className="bg-gradient-to-br from-blue-800 to-slate-800 border-0 p-8 hover:shadow-2xl transition-all duration-300">
+            <Card className="bg-gradient-to-br from-[#a88865] to-[#8b6f47] border-0 p-8 hover:shadow-2xl transition-all duration-300">
               <div className="text-center">
                 <Search className="w-16 h-16 text-white mx-auto mb-4" />
                 <h3 className="text-3xl font-bold text-white mb-3">
@@ -187,7 +187,7 @@ export default function DashboardPage() {
                 </p>
                 <Button
                   size="lg"
-                  className="bg-white text-blue-900 hover:bg-gray-100 text-lg px-8 py-6 h-auto"
+                  className="bg-white text-[#8b6f47] hover:bg-gray-100 text-lg px-8 py-6 h-auto font-bold"
                   onClick={() => router.push('/matchmaking')}
                 >
                   <Search className="w-6 h-6 mr-2" />
@@ -198,10 +198,10 @@ export default function DashboardPage() {
 
             {/* Quick Stats */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20 p-6 hover:bg-white/15 transition-all cursor-pointer">
+              <Card className="bg-[#2b2925] border-[#3d3d3d] p-6 hover:bg-[#3d3d3d] transition-all cursor-pointer">
                 <div className="flex items-center gap-4">
-                  <div className="bg-blue-500/20 p-3 rounded-lg">
-                    <Users className="w-8 h-8 text-blue-400" />
+                  <div className="bg-[#3d3d3d] p-3 rounded-lg">
+                    <Users className="w-8 h-8 text-[#a88865]" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Amigos</p>
@@ -210,10 +210,10 @@ export default function DashboardPage() {
                 </div>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20 p-6 hover:bg-white/15 transition-all cursor-pointer">
+              <Card className="bg-[#2b2925] border-[#3d3d3d] p-6 hover:bg-[#3d3d3d] transition-all cursor-pointer">
                 <div className="flex items-center gap-4">
-                  <div className="bg-amber-500/20 p-3 rounded-lg">
-                    <Trophy className="w-8 h-8 text-amber-400" />
+                  <div className="bg-[#3d3d3d] p-3 rounded-lg">
+                    <Trophy className="w-8 h-8 text-[#d59120]" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Vitórias</p>
@@ -222,10 +222,10 @@ export default function DashboardPage() {
                 </div>
               </Card>
 
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20 p-6 hover:bg-white/15 transition-all cursor-pointer">
+              <Card className="bg-[#2b2925] border-[#3d3d3d] p-6 hover:bg-[#3d3d3d] transition-all cursor-pointer">
                 <div className="flex items-center gap-4">
-                  <div className="bg-green-500/20 p-3 rounded-lg">
-                    <Trophy className="w-8 h-8 text-green-400" />
+                  <div className="bg-[#3d3d3d] p-3 rounded-lg">
+                    <Trophy className="w-8 h-8 text-[#a88865]" />
                   </div>
                   <div>
                     <p className="text-gray-400 text-sm">Partidas</p>
